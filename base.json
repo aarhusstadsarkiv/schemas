@@ -5,10 +5,11 @@
     "description": "Basis-schema for all entity-resources. Do not use on its own. Extended by domain-schemas.",
     "type": "object",
     "_meta": {
-        "indexedProperties": ["id", "domain", "schema"],
         "systemProperties": ["uuid", "id", "domain", "schema", "created", "created_by", "updated", "updated_by"],
+        "indexedProperties": ["id", "domain", "schema"],
         "fulltextProperties": ["description"],
-        "autocompleteProperties": ["label"]
+        "autocompleteProperties": ["display_label"],
+        "projectionProperties": ["display_label"]
     },
     "properties": {
         "uuid": {
