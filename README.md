@@ -1,2 +1,2 @@
-# schemas
-Home to our jsonschemas
+## schemas
+A couple of jsonschemas not currently in use.
