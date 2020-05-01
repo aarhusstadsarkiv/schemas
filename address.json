@@ -1,0 +1,134 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://raw.githubusercontent.com/aarhusstadsarkiv/schemas/master/address.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["uuid", "id", "parish", "name", "zipcode", "display_label", "local_area", "addr_nr"],
+  "properties": {
+    "uuid": {
+      "type": "string",
+      "title": "Universal unique identifier",
+      "description": "UUID4. Assigned by system.",
+      "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+  },
+  "id": {
+      "type": "string",
+      "title": "Resourcespecifik ID",
+      "description": "9-cifret løbenummer semi-specifik for resourcetypen. Assigned by system.",
+      "maxLength": 9,
+      "pattern": "^[0-9]{9}$"
+  },
+    "description": {
+      "type": "string",
+      "title": "Beskrivelse"
+    },
+    "parish": {
+      "type": "string",
+      "title": "Sogn"
+    },
+    "date_from": {
+      "pattern": "^([0-9]{4})(-([0-9]{2}))?(-([0-9]{2}))?$",
+      "type": "string",
+      "title": "Oprettelsesdato"
+    },
+    "ext_data": {
+      "type": "object",
+      "title": "Udvidet data"
+    },
+    "alt_names": {
+      "array_type": "string",
+      "type": "array",
+      "description": "Alternative navne",
+      "title": "Alternative navne"
+    },
+    "longitude": {
+      "type": "number",
+      "title": "Breddegrad"
+    },
+    "zipcode": {
+      "minimum": 8000,
+      "maximum": 8500,
+      "type": "integer",
+      "title": "Postnummer"
+    },
+    "sources": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      },
+      "description": "URL-links eller enkeltlinje referencer",
+      "title": "Kilder"
+    },
+    "display_label": {
+      "type": "string",
+      "description": "Den streng, som entiteten repræsenteres med",
+      "title": "Displaynavn"
+    },
+    "local_area": {
+      "type": "string",
+      "title": "Lokal område"
+    },
+    "date_to": {
+      "pattern": "^([0-9]{4})(-([0-9]{2}))?(-([0-9]{2}))?$",
+      "type": "string",
+      "title": "Nedlæggelsesdato"
+    },
+    "latitude": {
+      "type": "number",
+      "title": "Længdegrad"
+    },
+    "portrait": {
+      "type": "string",
+      "format": "uri",
+      "title": "Portræt"
+    },
+    "rotation": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 360,
+      "title": "Rotation"
+    },
+    "addr_nr": {
+      "pattern": "^[0-9].*?",
+      "type": "string",
+      "maxLength": 30,
+      "title": "Husnummer"
+    },
+    "name": {
+      "type": "string",
+      "maxLength": 255,
+      "title": "Vejnavn"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "title": "Skabt",
+      "description": "Datetime for oprettelse af adressen"
+    },
+    "created_by": {
+        "type": "string",
+        "maxLength": 255,
+        "title": "Skabt af",
+        "description": "Brugernavn/ID på skaber/oploader af adressen"
+    },
+    "updated_at": {
+        "type": "string",
+        "format": "date-time",
+        "title": "Senest opdateret",
+        "description": "Datetime for seneste opdatering af adressen"
+    },
+    "updated_by": {
+        "type": "string",
+        "maxLength": 255,
+        "title": "Senest opdateret af",
+        "description": "Brugernavn på seneste opdaterer af adressen"
+    },
+    "status": {
+        "type": "string",
+        "enum": ["validated", "not validated", "machine-generated", "user-generated"],
+        "title": "Status",
+        "default": "not validated"
+    }
+  }
+}
