@@ -3,21 +3,30 @@
   "id": "https://raw.githubusercontent.com/aarhusstadsarkiv/schemas/master/address.json",
   "type": "object",
   "additionalProperties": false,
-  "required": ["uuid", "id", "parish", "name", "zipcode", "display_label", "local_area", "addr_nr"],
+  "required": [
+    "uuid",
+    "id",
+    "parish",
+    "name",
+    "zipcode",
+    "display_label",
+    "local_area",
+    "addr_nr"
+  ],
   "properties": {
     "uuid": {
       "type": "string",
       "title": "Universal unique identifier",
       "description": "UUID4. Assigned by system.",
       "pattern": "[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
-  },
-  "id": {
+    },
+    "id": {
       "type": "string",
       "title": "Resourcespecifik ID",
       "description": "9-cifret løbenummer semi-specifik for resourcetypen. Assigned by system.",
       "maxLength": 9,
       "pattern": "^[0-9]{9}$"
-  },
+    },
     "description": {
       "type": "string",
       "title": "Beskrivelse"
@@ -107,28 +116,33 @@
       "description": "Datetime for oprettelse af adressen"
     },
     "created_by": {
-        "type": "string",
-        "maxLength": 255,
-        "title": "Skabt af",
-        "description": "Brugernavn/ID på skaber/oploader af adressen"
+      "type": "string",
+      "maxLength": 255,
+      "title": "Skabt af",
+      "description": "Brugernavn/ID på skaber/oploader af adressen"
     },
     "updated_at": {
-        "type": "string",
-        "format": "date-time",
-        "title": "Senest opdateret",
-        "description": "Datetime for seneste opdatering af adressen"
+      "type": "string",
+      "format": "date-time",
+      "title": "Senest opdateret",
+      "description": "Datetime for seneste opdatering af adressen"
     },
     "updated_by": {
-        "type": "string",
-        "maxLength": 255,
-        "title": "Senest opdateret af",
-        "description": "Brugernavn på seneste opdaterer af adressen"
+      "type": "string",
+      "maxLength": 255,
+      "title": "Senest opdateret af",
+      "description": "Brugernavn på seneste opdaterer af adressen"
     },
     "status": {
-        "type": "string",
-        "enum": ["validated", "not validated", "machine-generated", "user-generated"],
-        "title": "Status",
-        "default": "not validated"
+      "type": "string",
+      "enum": [
+        "validated",
+        "not validated",
+        "machine-generated",
+        "user-generated"
+      ],
+      "title": "Status",
+      "default": "not validated"
     }
   }
 }
